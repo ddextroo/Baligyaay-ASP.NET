@@ -11,6 +11,18 @@
       "driver": "MSSQL",
       "connectString": "Integrated Security=SSPI;Persist Security Info=False;User ID=dextro;Initial Catalog=master;Data Source=DEXTRO\\SQLEXPRESS",
       "name": "baligyaay"
+    },
+    {
+      "mssqlOptions": {
+        "appName": "SQLTools",
+        "useUTC": true,
+        "encrypt": true
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "driver": "MSSQL",
+      "name": "baligyaay furniture",
+      "connectString": "Integrated Security=SSPI;Persist Security Info=False;User ID=dextro;Initial Catalog=master;Data Source=DEXTRO\\\\SQLEXPRESS"
     }
   ]
 }

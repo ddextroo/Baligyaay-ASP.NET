@@ -1,0 +1,103 @@
+﻿@{
+  ViewData["Title"] = "Register";
+}
+
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+  <div class="container w-100 d-flex justify-content-center">
+    <div
+      class="row align-items-start bg-body px-10 p-5 shadow-md rounded-3 w-50 my-10"
+    >
+      <div class="col d-flex">
+        <div class="col">
+          <div><h3>Join Baligyaay Furniture Haven Today</h3></div>
+          <p class="text-color">
+            Ready to explore our wide range of furniture offerings? Create your account below to get started.
+          </p>
+          <label for="basic-url" class="form-label">First Name<span class="text-danger">&nbsp;*</span></label>
+          <div class="input-group mb-5">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa-solid fa-user"></i></span>
+            <input
+              type="text"
+              id="fname"
+              class="form-control"
+              placeholder="Dexter"
+              aria-label="First Name"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <label for="basic-url" class="form-label">Last Name<span class="text-danger">&nbsp;*</span></label>
+          <div class="input-group mb-5">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa-solid fa-user"></i></span>
+            <input
+              type="text"
+              id="lname"
+              class="form-control"
+              placeholder="Inguito"
+              aria-label="Last Name"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <label for="basic-url" class="form-label">Phone number</label>
+          <div class="input-group mb-5">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa-solid fa-phone"></i></span>
+            <input
+              type="tel"
+              id="phone"
+              class="form-control"
+              placeholder="09123456789"
+              aria-label="Phone number"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <label for="basic-url" class="form-label">Email address<span class="text-danger">&nbsp;*</span></label>
+          <div class="input-group mb-5">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa-solid fa-at"></i
+            ></span>
+            <input
+              type="email"
+              id="phone"
+              class="form-control"
+              placeholder="dexteringuito@gmail.com"
+              aria-label="Email Address"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <label for="basic-url" class="form-label">Password<span class="text-danger">&nbsp;*</span></label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa-solid fa-key"></i
+            ></span>
+            <input
+              type="password"
+              id="pass"
+              class="form-control"
+              placeholder="************"
+              aria-label="Password"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <button class="btn btn-discovery w-100 mt-5">Create Account</button>
+          <div class="d-flex w-full justify-content-center mt-3">
+            Have an account?<a href="/Home/Login"
+              ><span class="fw-medium text-discovery"
+                >&nbsp;Log in</span
+              ></a>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col">
+        <img
+          src="~/assets/motorpartsbanner.jpg"
+          alt="Motor parts"
+          class="img-fluid"
+        />
+      </div> -->
+    </div>
+  </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/auth/signup.js"></script>

@@ -1,4 +1,6 @@
-﻿@{ ViewData["Title"] = "Login"; }
+﻿@{
+  ViewData["Title"] = "Login";
+}
 
 <div class="d-flex justify-content-center align-items-center min-vh-100">
   <div class="container w-100 d-flex justify-content-center">
@@ -9,32 +11,41 @@
         <div class="col">
           <div><h3>Sign in</h3></div>
           <p class="text-color">
-            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
-            consectetur, adipisci velit..
+            Welcome back to Baligyaay Furniture Haven! Please enter your login
+            details below to access your account.
           </p>
+          <label for="basic-url" class="form-label">Email Password</label>
           <div class="input-group mb-5">
-            <span class="input-group-text" id="basic-addon1">&#64;</span>
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa-solid fa-at"></i
+            ></span>
             <input
               type="email"
               class="form-control"
-              placeholder="Email Address"
+              placeholder="dexteringuito@gmail.com"
               aria-label="Email Address"
               aria-describedby="basic-addon1"
             />
           </div>
+          <label for="basic-url" class="form-label">Password</label>
           <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa-solid fa-key"></i
+            ></span>
             <input
               type="password"
               class="form-control"
-              placeholder="Password"
+              placeholder="****************"
               aria-label="Password"
               aria-describedby="basic-addon1"
             />
           </div>
           <button class="btn btn-discovery w-100 mt-5">Login now</button>
           <div class="d-flex w-full justify-content-center mt-3">
-            Don't have an account?<span class="fw-medium text-discovery"
-              >&nbsp;Create now!</span
+            Don't have an account?<a href="/Home/Register"
+              ><span class="fw-medium text-discovery"
+                >&nbsp;Create now!</span
+              ></a
             >
           </div>
         </div>

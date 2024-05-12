@@ -42,8 +42,11 @@ namespace Baligyaay.Controllers
             ViewBag.ConnectionStatus = isConnected ? "Connected" : "Not Connected";
             return View();
         }
-
         public IActionResult Login()
+        {
+            return View();
+        }
+        public IActionResult Register()
         {
             return View();
         }
