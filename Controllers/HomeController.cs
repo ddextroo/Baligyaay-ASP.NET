@@ -10,11 +10,13 @@ namespace Baligyaay.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IConfiguration _configuration;
+        private readonly SessionManager _sessionManager;
 
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration, SessionManager sessionManager)
         {
             _logger = logger;
             _configuration = configuration;
+            _sessionManager = sessionManager;
         }
 
         private static class DatabaseHelper
@@ -38,8 +40,17 @@ namespace Baligyaay.Controllers
 
         public async Task<IActionResult> IndexAsync()
         {
-            bool isConnected = await DatabaseHelper.IsServerConnected(_configuration.GetConnectionString("baligyaayconn")!);
+            var email = _sessionManager.GetSessionValue("Email");
+
+            if (email == null)
+            {
+                // Redirect to Home only if Email is null, to avoid a loop ensure Home action does not redirect back here
+                return RedirectToAction("Login");
+            }
+
+            bool isConnected = await DatabaseHelper.IsServerConnected(_configuration.GetConnectionString("baligyaayconn"));
             ViewBag.ConnectionStatus = isConnected ? "Connected" : "Not Connected";
+
             return View();
         }
         public IActionResult Login()
@@ -50,9 +61,34 @@ namespace Baligyaay.Controllers
         {
             return View();
         }
-        public IActionResult Admin()
+        public IActionResult AdminLogin()
         {
             return View();
+        }
+        public IActionResult Admin()
+        {
+            var admin = _sessionManager.GetSessionValue("admin");
+
+            if (admin == null)
+            {
+                return RedirectToAction("AdminLogin");
+            }
+            return View();
+        }
+        public IActionResult AdminAccess()
+        {
+            var username = Request.Form["username"];
+            var password = Request.Form["password"];
+
+            if (username == "admin" && password == "1234")
+            {
+                _sessionManager.SetSessionValue("admin", password);
+                return Ok("Access Granted");
+            }
+            else
+            {
+                return BadRequest("Access Denied");
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

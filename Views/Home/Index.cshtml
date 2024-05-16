@@ -1,10 +1,13 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+@page
+@model Baligyaay.Views.Home.Index
 
-<div class="text-center">
+
+<div>
+    @* <p>Your email is: @Model.Email</p> *@
     <h1>Database Connection Status</h1>
     <p>@ViewBag.ConnectionStatus</p>
 
     <button type="button" class="btn btn-discovery">Let's goooooo</button>
 </div>
+
+

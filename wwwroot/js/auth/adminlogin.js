@@ -1,19 +1,12 @@
 $(document).ready(function () {
-  $("#create").on("click", function () {
+  $("#login").on("click", function () {
+    var username = $("#username").val();
+    var password = $("#pass").val();
+
     $.ajax({
+      url: "/Home/AdminAccess",
       type: "POST",
-      url: "/api/Customer",
-      data: JSON.stringify({
-        firstName: $("#fname").val(),
-        lastName: $("#lname").val(),
-        phone: $("#phone").val(),
-        email: $("#email").val(),
-        password: $("#pass").val(),
-      }),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
+      data: { username: username, password: password },
       success: function (data) {
         Swal.fire({
           title: data,
@@ -30,12 +23,12 @@ $(document).ready(function () {
           `,
         }).then((result) => {
           if (result.isConfirmed) {
-            window.location.href = "/Home";
+            window.location.href = "/Home/Admin";
           }
         });
       },
       error: function (xhr, status, error) {
-        console.log(xhr.responseText);
+        console.error(xhr.responseText);
         Swal.fire({
           icon: "error",
           title: "Oops...",

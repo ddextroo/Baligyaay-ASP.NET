@@ -1,7 +1,19 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddHttpContextAccessor(); // Add IHttpContextAccessor
+builder.Services.AddScoped<SessionManager>(); // Add SessionManager
+
+builder.Services.AddSession(options =>
+{
+    options.Cookie.Name = ".Baligyaay.Session";
+    options.IdleTimeout = TimeSpan.FromDays(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -17,16 +29,14 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthorization();
+app.UseSession(); // Place this after UseAuthorization and before UseEndpoints
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapRazorPages();
+app.MapDefaultControllerRoute();
 
-app.MapControllerRoute(
-    name: "login",
-    pattern: "{controller=Home}/{action=Login}/{id?}");
-
+// app.MapControllerRoute(
+//     name: "login",
+//     pattern: "{controller=Home}/{action=Login}/{id?}");
 
 app.Run();

@@ -149,3 +149,4 @@ C:\Users\W10\Documents\MYFILES\MY_PROJECTS\web\Baligyaay\bin\Debug\net8.0\runtim
 C:\Users\W10\Documents\MYFILES\MY_PROJECTS\web\Baligyaay\obj\Debug\net8.0\Baligyaay.csproj.AssemblyReference.cache
 C:\Users\W10\Documents\MYFILES\MY_PROJECTS\web\Baligyaay\obj\Debug\net8.0\Baligyaay.csproj.Up2Date
 C:\Users\W10\Documents\MYFILES\MY_PROJECTS\web\Baligyaay\obj\Debug\net8.0\Baligyaay.sourcelink.json
+C:\Users\W10\Documents\MYFILES\MY_PROJECTS\web\Baligyaay\bin\Debug\net8.0\BCrypt.Net-Next.dll
