@@ -1,31 +1,292 @@
-@page
+@page 
 @model Baligyaay.Views.Home.Admin
 
 <div>
-    <table class="table table-striped">
-<thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry the Bird</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+  <div class="d-flex justify-content-between mt-10">
+    <h2>Products</h2>
+    <div class="">
+      <button
+      class="btn btn-discovery"
+      data-bs-toggle="modal"
+      data-bs-target="#DataModal3"
+    >
+      Add Category
+    </button>
+    <button
+      class="btn btn-discovery"
+      data-bs-toggle="modal"
+      data-bs-target="#DataModal2"
+    >
+      Add Product
+    </button>
+
+    </div>
+  </div>
+  <table
+    id="CustomerTable"
+    class="table table-borderless table-stipped table-hover"
+    data-url=""
+    data-side-pagination="client"
+    data-toggle="table"
+    data-pagination="true"
+    data-show-toggle="true"
+    data-show-columns="true"
+  >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Price</th>
+        <th scope="col">Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Adjustable Standing Desk</td>
+        <td>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/640px-Cat_November_2010-1a.jpg"
+            width="50"
+            height="50"
+          />
+        </td>
+        <td>$499.00</td>
+        <td>34</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="DataModal2" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Product Details</h3>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true" data-bs-dismiss="modal">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <form id="product">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-5 mb-3">
+                  <label for="product_name" class="col-form-label"
+                    >Product Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="user"
+                    id="product_name"
+                    required
+                  />
+                </div>
+                <div class="col-md-5 mb-3">
+                  <label for="product_description" class="col-form-label"
+                    >Product Description</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="product_description"
+                    rows="3"
+                    placeholder="Add a description here"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-5 mb-3">
+                  <label for="product_price" class="col-form-label"
+                    >Product Price</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="user"
+                    id="product_price"
+                    min="0"
+        pattern="\d*"
+                    required
+                  />
+                </div>
+                <div class="col-md-5 mb-3">
+                  <label for="product_stock" class="col-form-label"
+                    >Product Stock</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="user"
+                    id="product_stock"
+                    min="0"
+        pattern="\d*"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-5 mb-3">
+                  <label for="product_material" class="col-form-label"
+                    >Product Material</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="user"
+                    id="product_material"
+                    required
+                  />
+                </div>
+                <div class="col-md-5 mb-3">
+                  <label for="product_length" class="col-form-label"
+                    >Product Length</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="user"
+                    id="product_length"
+                    min="0"
+        pattern="\d*"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-5 mb-3">
+                  <label for="product_width" class="col-form-label"
+                    >Product Width</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="user"
+                    id="product_width"
+                    min="0"
+        pattern="\d*"
+                    required
+                  />
+                </div>
+                <div class="col-md-5 mb-3">
+                  <label for="product_height" class="col-form-label"
+                    >Product Height</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="user"
+                    id="product_height"
+                    min="0"
+        pattern="\d*"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-5 mb-3">
+                  <label for="product_weight" class="col-form-label"
+                    >Product Weight</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="user"
+                    id="product_weight"
+                    min="0"
+        pattern="\d*"
+                    required
+                  />
+                </div>
+                <div class="col-md-5 mb-3">
+                  <label for="product_image" class="col-form-label"
+                    >Upload Image</label
+                  >
+                  <input class="form-control" type="file" id="product_image" accept="image/*" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            class="btn btn-discovery w-25"
+            data-bs-dismiss="modal"
+          >
+            Add Product
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="DataModal3" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Category</h3>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true" data-bs-dismiss="modal">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <form id="category">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-5 mb-3">
+                  <label for="category_name" class="col-form-label"
+                    >Category Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="user"
+                    id="category_name"
+                    required
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            class="btn btn-discovery w-25"
+            data-bs-dismiss="modal"
+          >
+            Add Category
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/auth/admin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="sweetalert2.all.min.js"></script>

@@ -53,4 +53,6 @@ CREATE TABLE customer(
 SELECT
     *
 FROM
-    customer
+    category
+ALTER TABLE
+    category DROP COLUMN cat_description

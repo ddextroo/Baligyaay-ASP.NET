@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xw5mWEmjsjZ/cLiH+JQbkL4uRDsRgZDuluQM9trWqEw=",
+  "Hash": "7DN7iWN5AYSPnBRQohuoh7qEK5mfKefE4oLJz7gwq7M=",
   "Source": "Baligyaay",
   "BasePath": "_content/Baligyaay",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\js\\auth\\admin.js",
+      "SourceId": "Baligyaay",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\",
+      "BasePath": "_content/Baligyaay",
+      "RelativePath": "js/auth/admin.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\auth\\admin.js"
     },
     {
       "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\js\\auth\\adminlogin.js",

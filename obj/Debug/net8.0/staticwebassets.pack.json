@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\js\\auth\\admin.js",
+      "PackagePath": "staticwebassets\\js\\auth\\admin.js"
+    },
+    {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\js\\auth\\adminlogin.js",
       "PackagePath": "staticwebassets\\js\\auth\\adminlogin.js"
     },
