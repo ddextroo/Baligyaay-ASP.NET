@@ -6,7 +6,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddHttpContextAccessor(); // Add IHttpContextAccessor
 builder.Services.AddScoped<SessionManager>(); // Add SessionManager
-
+builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddSession(options =>
 {
     options.Cookie.Name = ".Baligyaay.Session";

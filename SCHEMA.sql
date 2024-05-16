@@ -53,6 +53,6 @@ CREATE TABLE customer(
 SELECT
     *
 FROM
-    category
-ALTER TABLE
-    category DROP COLUMN cat_description
+    product
+DELETE FROM
+    product_char
