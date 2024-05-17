@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using Baligyaay.Helpers;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace Baligyaay.Controllers
 {
@@ -28,60 +29,6 @@ namespace Baligyaay.Controllers
             isConnected = await DatabaseHelper.IsServerConnected(_configuration.GetConnectionString("baligyaayconn")!);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            try
-            {
-                await InitializeAsync();
-
-                using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")))
-                {
-                    await connection.OpenAsync();
-
-                    using (var command = connection.CreateCommand())
-                    {
-                        command.CommandType = CommandType.Text;
-                        command.CommandText = "SELECT * FROM product ";
-
-                        using (var reader = await command.ExecuteReaderAsync())
-                        {
-                            var customers = new List<Customer>();
-                            while (await reader.ReadAsync())
-                            {
-                                var customer = new Customer
-                                {
-                                    Id = reader.GetInt32("cus_id"),
-                                    FirstName = reader["cus_fname"].ToString(),
-                                    LastName = reader["cus_lname"].ToString(),
-                                    Phone = reader["cus_phone"].ToString(),
-                                    Email = reader["cus_email"].ToString(),
-                                    Password = reader["cus_password"].ToString()
-                                };
-                                customers.Add(customer);
-                            }
-
-                            return Ok(customers);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                var serializedException = new
-                {
-                    ex.Message,
-                    ex.StackTrace,
-                    ex.GetType().FullName
-                };
-
-                // Serialize the anonymous object to JSON
-                var json = System.Text.Json.JsonSerializer.Serialize(serializedException);
-
-                // Return the JSON representation of the exception
-                return StatusCode(500, json);
-            }
-        }
         [HttpGet("Category")]
         public async Task<IActionResult> GetAllCategory()
         {
@@ -112,6 +59,66 @@ namespace Baligyaay.Controllers
                             }
 
                             return Ok(categories);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                var serializedException = new
+                {
+                    ex.Message,
+                    ex.StackTrace,
+                    ex.GetType().FullName
+                };
+
+                var json = System.Text.Json.JsonSerializer.Serialize(serializedException);
+
+                return StatusCode(500, json);
+            }
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetAllProduct()
+        {
+            try
+            {
+                await InitializeAsync();
+
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")))
+                {
+                    await connection.OpenAsync();
+
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = "SELECT product.prod_id, product.prod_name, product.prod_description, product.prod_price, product.prod_stock, product.prod_img_url, category.cat_id, category.cat_name, product_char.char_id, product_char.char_material, product_char.char_length, product_char.char_width, product_char.char_height, product_char.char_weight FROM product INNER JOIN category ON product.cat_id = category.cat_id INNER JOIN product_char ON product.prod_id = product_char.prod_id";
+
+                        using (var reader = await command.ExecuteReaderAsync())
+                        {
+                            var products = new List<JoinedProduct>();
+                            while (await reader.ReadAsync())
+                            {
+                                var product = new JoinedProduct
+                                {
+                                    prod_id = reader.GetInt32("prod_id"),
+                                    prod_name = reader.GetString("prod_name"),
+                                    prod_description = reader.GetString("prod_description"),
+                                    prod_price = reader.GetDecimal("prod_price"),
+                                    prod_stock = reader.GetInt32("prod_stock"),
+                                    prod_img_url = reader.GetString("prod_img_url"),
+                                    cat_id = reader.GetInt32("cat_id"),
+                                    cat_name = reader.GetString("cat_name"),
+                                    char_id = reader.GetInt32("char_id"),
+                                    char_material = reader.GetString("char_material"),
+                                    char_length = reader.GetDecimal("char_length"),
+                                    char_width = reader.GetDecimal("char_width"),
+                                    char_height = reader.GetDecimal("char_height"),
+                                    char_weight = reader.GetDecimal("char_weight")
+                                };
+                                products.Add(product);
+                            }
+
+                            return Ok(products);
                         }
                     }
                 }
@@ -189,12 +196,11 @@ namespace Baligyaay.Controllers
                 {
                     connection.Open();
 
-                    // Get the image file name
-                    string imageName = productCreationDto.Product.image;
-
-                    // Save the image path
-                    string imagePath = Path.Combine("Image", imageName); // Path to save in Image directory
-                    string absoluteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", imagePath); // Absolute path
+                    var base64Data = Regex.Match(productCreationDto.Product.image, @"data:image/(?<type>.+?);base64,(?<data>.+)").Groups["data"].Value;
+                    var imageData = Convert.FromBase64String(base64Data);
+                    var filename = Guid.NewGuid() + ".png";
+                    var filePath = Path.Combine("wwwroot", "uploads", $"{filename}");
+                    System.IO.File.WriteAllBytes(filePath, imageData);
 
                     // Insert into the product table with OUTPUT clause
                     using (var command = new SqlCommand("INSERT INTO product (prod_name, prod_description, prod_price, prod_stock, prod_img_url, cat_id) OUTPUT INSERTED.prod_id VALUES (@name, @description, @price, @stock, @image, @cat_id)", connection))
@@ -204,12 +210,11 @@ namespace Baligyaay.Controllers
                         command.Parameters.AddWithValue("@description", productCreationDto.Product.description);
                         command.Parameters.AddWithValue("@price", productCreationDto.Product.price);
                         command.Parameters.AddWithValue("@stock", productCreationDto.Product.stock);
-                        command.Parameters.AddWithValue("@image", imagePath);
+                        command.Parameters.AddWithValue("@image", "/uploads/" + filename);
                         command.Parameters.AddWithValue("@cat_id", productCreationDto.Product.category);
 
                         int productId = (int)command.ExecuteScalar();
 
-                        // Insert into the product_char table
                         using (var command2 = new SqlCommand("INSERT INTO product_char (char_material, char_length, char_width, char_height, char_weight, prod_id) VALUES (@material, @length, @width, @height, @weight, @prod_id)", connection))
                         {
                             command2.CommandType = CommandType.Text;
@@ -233,7 +238,6 @@ namespace Baligyaay.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception for debugging purposes
                 Console.WriteLine(ex.Message);
                 Console.WriteLine(ex.StackTrace);
 

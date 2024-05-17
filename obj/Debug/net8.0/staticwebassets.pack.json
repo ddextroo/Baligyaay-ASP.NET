@@ -265,6 +265,18 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\5017a2ed-a3de-46cc-9782-a71edc9de4dd.png",
+      "PackagePath": "staticwebassets\\uploads\\5017a2ed-a3de-46cc-9782-a71edc9de4dd.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\78bff4ad-2a12-41ec-871c-944c0a1e4269.png",
+      "PackagePath": "staticwebassets\\uploads\\78bff4ad-2a12-41ec-871c-944c0a1e4269.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\ce34d836-c369-45e0-92f8-a31be53972dc.png",
+      "PackagePath": "staticwebassets\\uploads\\ce34d836-c369-45e0-92f8-a31be53972dc.png"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Baligyaay.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

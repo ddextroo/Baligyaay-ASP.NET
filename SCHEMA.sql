@@ -53,6 +53,27 @@ CREATE TABLE customer(
 SELECT
     *
 FROM
-    product
+    category
 DELETE FROM
     product_char
+SELECT
+    product.prod_id,
+    product.prod_name,
+    product.prod_description,
+    product.prod_price,
+    product.prod_stock,
+    product.prod_img_url,
+    category.cat_id,
+    category.cat_name,
+    product_char.char_id,
+    product_char.char_material,
+    product_char.char_length,
+    product_char.char_width,
+    product_char.char_height,
+    product_char.char_weight
+FROM
+    product
+    INNER JOIN category ON product.cat_id = category.cat_id
+    INNER JOIN product_char ON product.prod_id = product_char.prod_id
+DELETE FROM
+    category

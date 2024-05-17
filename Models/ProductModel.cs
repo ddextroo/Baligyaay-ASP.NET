@@ -7,5 +7,6 @@ public class Product
     public required double price { get; set; }
     public required int stock { get; set; }
     public required string image { get; set; }
+    public required string imageName { get; set; }
     public required int category { get; set; }
 }

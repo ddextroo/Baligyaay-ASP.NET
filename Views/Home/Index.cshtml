@@ -1,13 +1,113 @@
-@page
+@page 
 @model Baligyaay.Views.Home.Index
 
-
-<div>
-    @* <p>Your email is: @Model.Email</p> *@
-    <h1>Database Connection Status</h1>
-    <p>@ViewBag.ConnectionStatus</p>
-
-    <button type="button" class="btn btn-discovery">Let's goooooo</button>
+<div class="mt-5">
+  <div class="d-flex justify-content-between align-items-center">
+  <h1>Explore Baligyaay Furniture Haven</h1>
+  <button class="btn btn-outline-discovery py-3 rounded-4 px-6">
+  <i class="fa-solid fa-cart-shopping fa-xl me-2"></i>
+  Cart
+  </button>
 </div>
+  <div class="mt-2">
+    <button
+      type="button"
+      name="category"
+      class="rounded-pill btn btn-outline-discovery"
+    >
+      All
+    </button>
+    <button
+      type="button"
+      name="category"
+      class="rounded-pill btn btn-outline-discovery"
+    >
+      Living Room
+    </button>
+    <button
+      type="button"
+      name="category"
+      class="rounded-pill btn btn-outline-discovery"
+    >
+      Bedroom
+    </button>
+    <button
+      type="button"
+      name="category"
+      class="rounded-pill btn btn-outline-discovery"
+    >
+      Dining Room
+    </button>
+    <button
+      type="button"
+      name="category"
+      class="rounded-pill btn btn-outline-discovery"
+    >
+      Home Office
+    </button>
+  </div>
 
-
+  <div class="container mt-10">
+    <div class="row">
+      <div class="col-6 col-md-4 mb-5">
+        <div class="card" style="max-width: 350px">
+          <img
+            src="https://www.furniturechoice.co.uk/p/m/FS10003165/FS10003165.jpg"
+            class="card-img-top"
+            style="height: 12rem"
+            alt="Lizard Image"
+          />
+          <div class="card-body">
+            <h4>Plush Sofa</h4>
+            <p class="text-body-tertiary fs-sm">2 items left</p>
+            <p class="card-text">
+              Comfortable three-seater sofa with soft cushioning
+            </p>
+            <div class="row d-flex align-items-center">
+              <div class="col d-flex align-content-center justify-content-between">
+                <p class="text-body-tertiary h-100 align-self-center">
+                  Material
+                </p>
+                <p class="h-100 align-self-center fs-6 fw-bold">Fabric</p>
+              </div>
+            </div>
+            <div class="row d-flex align-items-center">
+              <div class="col d-flex align-content-center justify-content-between">
+                <p class="text-body-tertiary h-100 align-self-center">
+                  Item Dimensions
+                </p>
+                <p class="h-100 align-self-center fs-6 fw-bold">80"L x 36"W x 32"H</p>
+              </div>
+            </div>
+            <div class="row d-flex align-items-center">
+              <div class="col d-flex align-content-center justify-content-between">
+                <p class="text-body-tertiary h-100 align-self-center">
+                  Item Weight
+                </p>
+                <p class="h-100 align-self-center fs-6 fw-bold">8.2 Kilograms</p>
+              </div>
+            </div>
+            <div class="row d-flex align-items-center mt-10">
+              <div class="col d-flex align-content-center justify-content-between">
+                <h5 class="h-100 align-self-center">
+                  ₱340.00
+                </h5>
+                <div class="row d-flex align-content-center">
+            <button class="col btn btn-outline-discovery rounded-circle">-</button>
+            <h5 class="col fw-bold">2</h5>
+            <button class="col btn btn-outline-discovery rounded-circle">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-muted">
+            <button class="btn btn-discovery w-100">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -1,4 +1,13 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿$(document).ready(function () {
+  $('button[name="category"]:first')
+    .removeClass("btn-outline-discovery")
+    .addClass("btn-discovery");
 
-// Write your JavaScript code.
+  $('button[name="category"]').click(function () {
+    $('button[name="category"]')
+      .removeClass("btn-discovery")
+      .addClass("btn-outline-discovery");
+
+    $(this).removeClass("btn-outline-discovery").addClass("btn-discovery");
+  });
+});
