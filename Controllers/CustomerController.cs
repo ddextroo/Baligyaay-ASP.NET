@@ -247,6 +247,62 @@ public class CustomerController : ControllerBase
             throw new Exception("An error occurred while checking the email", ex);
         }
     }
+
+    [HttpGet("getcustomer")]
+    public async Task<IActionResult> GetCustomerDetails(string emailAddress)
+    {
+        try
+        {
+            await InitializeAsync();
+
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")))
+            {
+                await connection.OpenAsync();
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+
+                    command.CommandText = @"SELECT * FROM customer WHERE cus_email = @emailAddress";
+                    command.Parameters.AddWithValue("@emailAddress", emailAddress);
+
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        var customers = new List<Customer>();
+                        while (await reader.ReadAsync())
+                        {
+                            var customer = new Customer
+                            {
+                                Id = reader.GetInt32("cus_id"),
+                                FirstName = reader.GetString("cus_fname"),
+                                LastName = reader.GetString("cus_lname"),
+                                Phone = reader.GetString("cus_phone"),
+                                Email = reader.GetString("cus_email"),
+                                Password = reader.GetString("cus_password"),
+
+                            };
+                            customers.Add(customer);
+                        }
+
+                        return Ok(customers);
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            var serializedException = new
+            {
+                ex.Message,
+                ex.StackTrace,
+                ex.GetType().FullName
+            };
+
+            var json = System.Text.Json.JsonSerializer.Serialize(serializedException);
+
+            return StatusCode(500, json);
+        }
+    }
 }
 
 

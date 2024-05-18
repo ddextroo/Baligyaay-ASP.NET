@@ -78,7 +78,7 @@ namespace Baligyaay.Controllers
             }
         }
         [HttpGet]
-        public async Task<IActionResult> GetAllProduct()
+        public async Task<IActionResult> GetAllProduct(int categoryId = -1)
         {
             try
             {
@@ -91,7 +91,26 @@ namespace Baligyaay.Controllers
                     using (var command = connection.CreateCommand())
                     {
                         command.CommandType = CommandType.Text;
-                        command.CommandText = "SELECT product.prod_id, product.prod_name, product.prod_description, product.prod_price, product.prod_stock, product.prod_img_url, category.cat_id, category.cat_name, product_char.char_id, product_char.char_material, product_char.char_length, product_char.char_width, product_char.char_height, product_char.char_weight FROM product INNER JOIN category ON product.cat_id = category.cat_id INNER JOIN product_char ON product.prod_id = product_char.prod_id";
+                        if (categoryId == -1)
+                        {
+                            command.CommandText = @"SELECT product.prod_id, product.prod_name, product.prod_description, product.prod_price, product.prod_stock, product.prod_img_url, 
+                                                category.cat_id, category.cat_name, product_char.char_id, product_char.char_material, product_char.char_length, 
+                                                product_char.char_width, product_char.char_height, product_char.char_weight 
+                                            FROM product 
+                                            INNER JOIN category ON product.cat_id = category.cat_id 
+                                            INNER JOIN product_char ON product.prod_id = product_char.prod_id";
+                        }
+                        else
+                        {
+                            command.CommandText = @"SELECT product.prod_id, product.prod_name, product.prod_description, product.prod_price, product.prod_stock, product.prod_img_url, 
+                                                category.cat_id, category.cat_name, product_char.char_id, product_char.char_material, product_char.char_length, 
+                                                product_char.char_width, product_char.char_height, product_char.char_weight 
+                                            FROM product 
+                                            INNER JOIN category ON product.cat_id = category.cat_id 
+                                            INNER JOIN product_char ON product.prod_id = product_char.prod_id
+                                            WHERE category.cat_id = @categoryId";
+                            command.Parameters.AddWithValue("@categoryId", categoryId);
+                        }
 
                         using (var reader = await command.ExecuteReaderAsync())
                         {

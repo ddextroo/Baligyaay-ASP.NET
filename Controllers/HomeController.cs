@@ -50,6 +50,7 @@ namespace Baligyaay.Controllers
 
             bool isConnected = await DatabaseHelper.IsServerConnected(_configuration.GetConnectionString("baligyaayconn"));
             ViewBag.ConnectionStatus = isConnected ? "Connected" : "Not Connected";
+            ViewBag.Email = email;
 
             return View();
         }
