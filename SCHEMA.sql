@@ -55,7 +55,7 @@ SELECT
 FROM
     category
 DELETE FROM
-    product_char
+    category
 SELECT
     product.prod_id,
     product.prod_name,
