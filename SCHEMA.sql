@@ -77,3 +77,40 @@ FROM
     INNER JOIN product_char ON product.prod_id = product_char.prod_id
 DELETE FROM
     category
+ALTER TABLE
+    cus_order DROP COLUMN order_status
+ALTER TABLE
+    order_items DROP CONSTRAINT FK__order_ite__order__414EAC47
+SELECT
+    *
+FROM
+    order_items
+SELECT
+    order_items.order_item_id,
+    order_items.order_item_quantity,
+    order_items.order_item_price,
+    customer.cus_id,
+    customer.cus_fname,
+    customer.cus_lname,
+    customer.cus_email,
+    customer.cus_phone,
+    product.prod_id,
+    product.prod_name,
+    product.prod_description,
+    product.prod_price,
+    product.prod_stock,
+    product.prod_img_url,
+    category.cat_id,
+    category.cat_name,
+    product_char.char_id,
+    product_char.char_material,
+    product_char.char_length,
+    product_char.char_width,
+    product_char.char_height,
+    product_char.char_weight
+FROM
+    order_items
+    INNER JOIN customer ON customer.cus_id = order_items.cus_id
+    INNER JOIN product ON product.prod_id = order_items.prod_id
+    INNER JOIN category ON category.cat_id = product.cat_id
+    INNER JOIN product_char ON product_char.prod_id = product.prod_id;

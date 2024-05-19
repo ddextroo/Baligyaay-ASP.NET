@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Baligyaay")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+48b9d57570f0d862435ec5268a23e633507baafe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41ffc6dd473a65949ccb11ea51b11c4da1698b0d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Baligyaay")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Baligyaay")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

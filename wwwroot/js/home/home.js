@@ -53,7 +53,7 @@ $(document).ready(function () {
                                 </div>
                             </div>
                             <div class="card-footer text-muted">
-                                <button class="btn btn-discovery w-100 cart" data-id="${product.prod_id}">Add to cart</button>
+                                <button class="btn btn-discovery w-100 cart" data-id="${product.prod_id}" data-price="${product.prod_price}">Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,6 @@ $(document).ready(function () {
           productRow.append(productCard);
         });
 
-        // Event delegation for add and subtract buttons
         productRow.off("click", ".add").on("click", ".add", function () {
           var prodId = $(this).data("id");
           var quantityElement = $('.quantity[data-id="' + prodId + '"]');
@@ -87,12 +86,56 @@ $(document).ready(function () {
 
         productRow.off("click", ".cart").on("click", ".cart", function () {
           var prodId = $(this).data("id");
+          var prod_price = $(this).data("price");
           var quantityElement = $('.quantity[data-id="' + prodId + '"]');
           var currentQuantity = parseInt(quantityElement.text());
 
           console.log(
             `Adding ${currentQuantity} item(s) to cart for product ID: ${prodId} | ${email}`
           );
+
+          $.ajax({
+            type: "POST",
+            url: "/api/Order",
+            data: JSON.stringify({
+              OrderItemQuantity: currentQuantity,
+              OrderItemPrice: prod_price,
+              ProdId: prodId,
+              CusId: cus_id,
+            }),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            success: function (data) {
+              Swal.fire({
+                title: data,
+                width: 600,
+                padding: "3em",
+                color: "#716add",
+                background:
+                  "#fff url(https://sweetalert2.github.io/images/trees.png)",
+                backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("https://sweetalert2.github.io/images/nyan-cat.gif")
+                    left top
+                    no-repeat
+                  `,
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location.href = "/Home";
+                }
+              });
+            },
+            error: function (xhr, status, error) {
+              console.log(xhr.responseText);
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: xhr.responseText,
+              });
+            },
+          });
         });
       },
       error: function (err) {
@@ -157,6 +200,7 @@ $(document).ready(function () {
 
   loadCategories();
   var email;
+  var cus_id;
   $.ajax({
     url: "/api/Customer/getcustomer",
     type: "GET",
@@ -164,6 +208,7 @@ $(document).ready(function () {
     data: { emailAddress: $("#email").text() },
     success: function (data) {
       email = data[0].email;
+      cus_id = data[0].id;
     },
   });
 });
