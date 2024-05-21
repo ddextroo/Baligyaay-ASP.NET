@@ -12,8 +12,8 @@ $(document).ready(function () {
 
         data.forEach(function (product) {
           productStocks[product.prod_id] = product.prod_stock;
-          console.log(productStocks[product.prod_id]);
-          var productCard = `
+          if (productStocks[product.prod_id] > 0) {
+            var productCard = `
                     <div class="col-6 col-md-4 mb-5 d-flex justify-content-center">
                         <div class="card" style="max-width: 350px">
                             <img src="${product.prod_img_url}" class="card-img-top" style="height: 12rem" alt="${product.prod_name} Image"/>
@@ -57,7 +57,8 @@ $(document).ready(function () {
                         </div>
                     </div>
                 `;
-          productRow.append(productCard);
+            productRow.append(productCard);
+          }
         });
 
         productRow.off("click", ".add").on("click", ".add", function () {

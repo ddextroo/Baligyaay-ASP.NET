@@ -29,7 +29,9 @@ $(document).ready(function () {
               order.prodImgUrl +
               '" width="100" height="100"/></td>' +
               "<td>₱" +
+              '<span class="price">' +
               order.orderItemPrice.toFixed(2) +
+              "</span>" +
               "</td>" +
               "<td>" +
               '<button type="button" class="btn btn-sm btn-outline-discovery me-3 subtract-btn">-</button>' +
@@ -42,7 +44,9 @@ $(document).ready(function () {
               order.catName +
               "</td>" +
               "<td>₱" +
+              '<span class="total_price">' +
               (order.orderItemQuantity * order.orderItemPrice).toFixed(2) +
+              "</span>" +
               "</td>" +
               `<td><i class="fa-solid fa-trash btn text-danger delete-order" data-id="${order.orderItemId}"></i></td>` +
               "</tr>";
@@ -52,18 +56,38 @@ $(document).ready(function () {
           // Event delegation for dynamically added elements
           tbody.on("click", ".subtract-btn", function () {
             var $quantity = $(this).siblings(".quantity");
+            var $row = $(this).closest("tr");
+            var $price = $row.find(".price");
+            var $totalPrice = $row.find(".total_price");
+
             var currentQuantity = parseInt($quantity.text());
+            var currentPrice = parseFloat($price.text().replace("₱", ""));
             if (currentQuantity > 1) {
-              $quantity.text(currentQuantity - 1);
-              updateOrder($(this).closest("tr"), currentQuantity - 1);
+              var newQuantity = currentQuantity - 1;
+              var newTotalPrice = (newQuantity * currentPrice).toFixed(2);
+
+              $quantity.text(newQuantity);
+              $totalPrice.text(newTotalPrice);
+
+              updateOrder($row, newQuantity);
             }
           });
 
           tbody.on("click", ".add-btn", function () {
             var $quantity = $(this).siblings(".quantity");
+            var $row = $(this).closest("tr");
+            var $price = $row.find(".price");
+            var $totalPrice = $row.find(".total_price");
+
             var currentQuantity = parseInt($quantity.text());
-            $quantity.text(currentQuantity + 1);
-            updateOrder($(this).closest("tr"), currentQuantity + 1);
+            var currentPrice = parseFloat($price.text().replace("₱", ""));
+            var newQuantity = currentQuantity + 1;
+            var newTotalPrice = (newQuantity * currentPrice).toFixed(2);
+
+            $quantity.text(newQuantity);
+            $totalPrice.text(newTotalPrice);
+
+            updateOrder($row, newQuantity);
           });
 
           $(".delete-order")
@@ -125,7 +149,7 @@ $(document).ready(function () {
         row.find("td:eq(5)").text("₱" + (price * newQuantity).toFixed(2));
       },
       error: function (error) {
-        console.log("Error updating order", error);
+        // console.log("Error updating order", error);
       },
     });
   }
