@@ -1,0 +1,46 @@
+@page
+@model Baligyaay.Views.Home.Order
+
+<p class="visually-hidden" id="email">@ViewBag.Email</p>
+<div>
+  <div class="d-flex mt-10 align-items-center">
+    <a href="/Home/">
+  <button type="button" class="btn btn-discovery position-relative mx-3">
+  <i class="fa-solid fa-arrow-left"></i>
+  </span>
+  </span>
+</button>
+  </a>
+    <h2>Orders</h2>
+  </div>
+  <table
+    id="OrderTable"
+    class="table table-borderless table-stipped table-hover"
+    data-url=""
+    data-side-pagination="client"
+    data-toggle="table"
+    data-pagination="true"
+    data-show-toggle="true"
+    data-show-columns="true"
+  >
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Category</th>
+        <th scope="col">Total Price</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+  <div class="w-100 mt-5"><button class="btn btn-discovery w-100" id="checkout">Checkout</button></div>
+
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/home/order.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

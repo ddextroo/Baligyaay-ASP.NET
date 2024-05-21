@@ -8,12 +8,11 @@ $(document).ready(function () {
       success: function (data) {
         var productRow = $("#product-row");
         productRow.empty();
-
         var productStocks = {};
 
         data.forEach(function (product) {
           productStocks[product.prod_id] = product.prod_stock;
-
+          console.log(productStocks[product.prod_id]);
           var productCard = `
                     <div class="col-6 col-md-4 mb-5 d-flex justify-content-center">
                         <div class="card" style="max-width: 350px">
@@ -209,6 +208,20 @@ $(document).ready(function () {
     success: function (data) {
       email = data[0].email;
       cus_id = data[0].id;
+      $.ajax({
+        url: "/api/Order/getorders",
+        method: "GET",
+        dataType: "json",
+        data: { cus_id: cus_id },
+        success: function (data) {
+          if (!data || Object.keys(data).length === 0) {
+            $("#notif").hide();
+          }
+        },
+        error: function (err) {
+          console.error("Error retrieving data:", err);
+        },
+      });
     },
   });
 });

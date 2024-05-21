@@ -51,7 +51,7 @@ namespace Baligyaay.Controllers
                         int rowsAffected = command.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
-                            return Ok("Category created successfully");
+                            return Ok("Item added to cart");
                         }
                         else
                         {
@@ -66,6 +66,74 @@ namespace Baligyaay.Controllers
                 return StatusCode(500, "An error occurred while processing your request");
             }
         }
+
+        [HttpDelete("DeleteOrder/{orderItemId}")]
+        public async Task<IActionResult> DeleteOrderItem(int orderItemId)
+
+        {
+            try
+            {
+                await InitializeAsync();
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")!))
+                {
+                    await connection.OpenAsync();
+                    using (var command = new SqlCommand("DELETE FROM order_items WHERE order_item_id = @orderItemId", connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@orderItemId", orderItemId);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            return Ok("Item deleted from cart");
+                        }
+                        else
+                        {
+                            return NotFound("Order item not found");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An error occurred while processing your request");
+            }
+        }
+        [HttpPut("UpdateOrder/{orderId}/{orderQuantity}")]
+        public async Task<IActionResult> UpdateQuantity(int orderId, int orderQuantity)
+        {
+            try
+            {
+                await InitializeAsync();
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")!))
+                {
+                    await connection.OpenAsync();
+                    using (var command = new SqlCommand("UPDATE order_items SET order_item_quantity = @orderQuantity WHERE order_item_id = @orderId", connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@orderQuantity", orderQuantity);
+                        command.Parameters.AddWithValue("@orderId", orderId);
+
+                        int rowsAffected = await command.ExecuteNonQueryAsync();
+                        if (rowsAffected > 0)
+                        {
+                            return Ok("Quantity updated from cart");
+                        }
+                        else
+                        {
+                            return NotFound("Order item not found");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (ex) here using a logging framework, e.g., Serilog, NLog, etc.
+                return StatusCode(500, ex);
+            }
+        }
+
+
         [HttpGet("getorders")]
         public async Task<IActionResult> GetCustomerOrders(string cus_id)
         {
@@ -82,7 +150,7 @@ namespace Baligyaay.Controllers
                         command.CommandType = CommandType.Text;
 
                         command.CommandText = @"
-SELECT
+SELECT  
     order_items.order_item_id,
     order_items.order_item_quantity,
     order_items.order_item_price,

@@ -114,3 +114,8 @@ FROM
     INNER JOIN product ON product.prod_id = order_items.prod_id
     INNER JOIN category ON category.cat_id = product.cat_id
     INNER JOIN product_char ON product_char.prod_id = product.prod_id;
+
+SELECT
+    *
+FROM
+    order_items

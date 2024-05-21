@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\js\\home\\home.js"
     },
     {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\js\\home\\order.js",
+      "PackagePath": "staticwebassets\\js\\home\\order.js"
+    },
+    {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
@@ -311,6 +315,10 @@
     {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\7e05bb80-b83d-42cd-8da5-b93a7bf66ec2.png",
       "PackagePath": "staticwebassets\\uploads\\7e05bb80-b83d-42cd-8da5-b93a7bf66ec2.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\82d2ba5e-73cb-42da-aac8-8e46d0f5be1a.png",
+      "PackagePath": "staticwebassets\\uploads\\82d2ba5e-73cb-42da-aac8-8e46d0f5be1a.png"
     },
     {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\933dcc49-5cb3-419f-be32-e93203e812f5.png",

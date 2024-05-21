@@ -66,6 +66,22 @@ namespace Baligyaay.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> Order()
+        {
+            var email = _sessionManager.GetSessionValue("Email");
+
+            if (email == null)
+            {
+                // Redirect to Home only if Email is null, to avoid a loop ensure Home action does not redirect back here
+                return RedirectToAction("Login");
+            }
+
+            bool isConnected = await DatabaseHelper.IsServerConnected(_configuration.GetConnectionString("baligyaayconn"));
+            ViewBag.ConnectionStatus = isConnected ? "Connected" : "Not Connected";
+            ViewBag.Email = email;
+
+            return View();
+        }
         public IActionResult Admin()
         {
             var admin = _sessionManager.GetSessionValue("admin");
