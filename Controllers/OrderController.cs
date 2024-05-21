@@ -99,6 +99,38 @@ namespace Baligyaay.Controllers
                 return StatusCode(500, "An error occurred while processing your request");
             }
         }
+        [HttpDelete("DeleteAll/{cus_Id}")]
+        public async Task<IActionResult> DeleteAll(int cus_Id)
+
+        {
+            try
+            {
+                await InitializeAsync();
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")!))
+                {
+                    await connection.OpenAsync();
+                    using (var command = new SqlCommand("DELETE FROM order_items WHERE cus_id = @cus_Id", connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@cus_Id", cus_Id);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            return Ok("All item deleted from cart");
+                        }
+                        else
+                        {
+                            return NotFound("Order item not found");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An error occurred while processing your request");
+            }
+        }
         [HttpPut("UpdateOrder/{orderId}/{orderQuantity}")]
         public async Task<IActionResult> UpdateQuantity(int orderId, int orderQuantity)
         {
@@ -132,7 +164,6 @@ namespace Baligyaay.Controllers
                 return StatusCode(500, ex);
             }
         }
-
 
         [HttpGet("getorders")]
         public async Task<IActionResult> GetCustomerOrders(string cus_id)
@@ -244,5 +275,55 @@ FROM
                 return StatusCode(500, json);
             }
         }
+
+        [HttpGet("checkproduct/{cus_id}")]
+        public async Task<IActionResult> CheckProductExistsInOrderItems(int cus_id, int prod_id)
+        {
+            try
+            {
+                await InitializeAsync();
+
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")))
+                {
+                    await connection.OpenAsync();
+
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandType = CommandType.Text;
+
+                        command.CommandText = @"
+SELECT CASE 
+    WHEN EXISTS (
+        SELECT 1 
+        FROM order_items 
+        WHERE cus_id = @cus_id AND prod_id = @prod_id
+    ) THEN CAST(1 AS BIT)
+    ELSE CAST(0 AS BIT)
+END";
+
+                        command.Parameters.AddWithValue("@cus_id", cus_id);
+                        command.Parameters.AddWithValue("@prod_id", prod_id);
+
+                        var exists = (bool)await command.ExecuteScalarAsync();
+
+                        return Ok(new { ProductExists = exists });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                var serializedException = new
+                {
+                    ex.Message,
+                    ex.StackTrace,
+                    ex.GetType().FullName
+                };
+
+                var json = System.Text.Json.JsonSerializer.Serialize(serializedException);
+
+                return StatusCode(500, json);
+            }
+        }
+
     }
 }

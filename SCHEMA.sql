@@ -119,3 +119,16 @@ SELECT
     *
 FROM
     order_items
+SELECT
+    CASE
+        WHEN EXISTS (
+            SELECT
+                1
+            FROM
+                order_items
+            WHERE
+                cus_id = 3
+                AND prod_id = 2
+        ) THEN CAST(1 AS BIT)
+        ELSE CAST(0 AS BIT)
+    END

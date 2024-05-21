@@ -48,7 +48,7 @@ $(document).ready(function () {
               (order.orderItemQuantity * order.orderItemPrice).toFixed(2) +
               "</span>" +
               "</td>" +
-              `<td><i class="fa-solid fa-trash btn text-danger delete-order" data-id="${order.orderItemId}"></i></td>` +
+              `<td><i class="fa-solid fa-square-minus fa-2xl btn text-danger delete-order" data-id="${order.orderItemId}"></i></td>` +
               "</tr>";
             tbody.append(row);
           });
@@ -95,42 +95,63 @@ $(document).ready(function () {
             .on("click", function () {
               var orderId = $(this).data("id");
               console.log(orderId);
-              Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#716add",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!",
-              }).then((result) => {
-                if (result.isConfirmed) {
+              $.ajax({
+                url: "/api/Customer/getcustomer",
+                type: "GET",
+                dataType: "json",
+                data: { emailAddress: email },
+                success: function (data) {
                   $.ajax({
-                    url: "/api/Customer/getcustomer",
-                    type: "GET",
+                    url: "/api/order/DeleteOrder/" + orderId,
+                    method: "DELETE",
                     dataType: "json",
-                    data: { emailAddress: email },
+                    data: JSON.stringify({ orderItemId: orderId }),
                     success: function (data) {
-                      $.ajax({
-                        url: "/api/order/DeleteOrder/" + orderId,
-                        method: "DELETE",
-                        dataType: "json",
-                        data: JSON.stringify({ orderItemId: orderId }),
-                        success: function (data) {
-                          console.log(data);
-                        },
-                      });
+                      console.log(data);
                     },
                   });
                   setTimeout(() => {
                     window.location.href = "/Home/Order";
                   }, 500);
-                }
+                },
               });
             });
         },
       });
     },
+  });
+
+  $("#deleteAll").click(function () {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#716add",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        $.ajax({
+          url: "/api/Customer/getcustomer",
+          type: "GET",
+          dataType: "json",
+          data: { emailAddress: email },
+          success: function (data) {
+            $.ajax({
+              url: "/api/order/DeleteAll/" + cus_id,
+              method: "DELETE",
+              dataType: "json",
+              data: JSON.stringify({ cus_Id: cus_id }),
+              success: function (data) {},
+            });
+          },
+        });
+        setTimeout(() => {
+          window.location.href = "/Home/Order";
+        }, 500);
+      }
+    });
   });
 
   function updateOrder(row, newQuantity) {
@@ -153,4 +174,69 @@ $(document).ready(function () {
       },
     });
   }
+  $("#checkout").click(function () {
+    $.ajax({
+      url: "/api/Order/getorders",
+      method: "GET",
+      dataType: "json",
+      data: { cus_id: cus_id },
+      success: function (orders) {
+        var valid = true;
+        var outOfStockItems = [];
+
+        $.each(orders, function (index, order) {
+          console.log(order);
+          if (order.prodStock < order.orderItemQuantity) {
+            valid = false;
+            outOfStockItems.push(order.prodName);
+          }
+        });
+
+        if (!valid) {
+          Swal.fire({
+            title: "Out of Stock",
+            text:
+              "The following items are out of stock: " +
+              outOfStockItems.join(", "),
+            icon: "error",
+          });
+        } else {
+          // Proceed with checkout
+          $.each(orders, function (index, order) {
+            // Deduct stock for each order item
+            $.ajax({
+              url:
+                "/api/Product/UpdateStock/" +
+                order.prodId +
+                "/" +
+                (order.prodStock - order.orderItemQuantity),
+              method: "PUT",
+              dataType: "json",
+              contentType: "application/json",
+              success: function (response) {
+                console.log("Stock updated for product ID:", order.prodId);
+              },
+            });
+          });
+
+          // Delete all orders after successful checkout
+          $.ajax({
+            url: "/api/order/DeleteAll/" + cus_id,
+            method: "DELETE",
+            dataType: "json",
+            success: function (data) {
+              Swal.fire({
+                title: "Success",
+                text: "Checkout completed successfully!",
+                icon: "success",
+              }).then(() => {});
+            },
+          });
+        }
+        setTimeout(() => {
+          window.location.href = "/Home/Order";
+        }, 500);
+      },
+    });
+  });
 });

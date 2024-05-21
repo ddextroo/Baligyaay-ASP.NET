@@ -264,6 +264,40 @@ namespace Baligyaay.Controllers
             }
         }
 
+        [HttpPut("UpdateStock/{prodId}/{newOrderStock}")]
+        public async Task<IActionResult> UpdateStock(int prodId, int newOrderStock)
+        {
+            try
+            {
+                await InitializeAsync();
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")!))
+                {
+                    await connection.OpenAsync();
+                    using (var command = new SqlCommand("UPDATE product SET prod_stock = @newOrderStock WHERE prod_id = @prodId", connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@newOrderStock", newOrderStock);
+                        command.Parameters.AddWithValue("@prodId", prodId);
+
+                        int rowsAffected = await command.ExecuteNonQueryAsync();
+                        if (rowsAffected > 0)
+                        {
+                            return Ok("Stock updated from product");
+                        }
+                        else
+                        {
+                            return NotFound("Order item not found");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (ex) here using a logging framework, e.g., Serilog, NLog, etc.
+                return StatusCode(500, ex);
+            }
+        }
+
 
     }
 
