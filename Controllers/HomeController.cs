@@ -92,6 +92,11 @@ namespace Baligyaay.Controllers
             }
             return View();
         }
+
+        public IActionResult Test()
+        {
+            return View();
+        }
         public IActionResult AdminAccess()
         {
             var username = Request.Form["username"];

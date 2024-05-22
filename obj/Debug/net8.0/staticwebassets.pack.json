@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\js\\test.js",
+      "PackagePath": "staticwebassets\\js\\test.js"
+    },
+    {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

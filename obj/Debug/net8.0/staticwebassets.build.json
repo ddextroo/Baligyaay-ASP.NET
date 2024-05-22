@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tYNIQHMPkpzI3uKYx/0TZd2OTM5LbXfkAaAsrNRLcxY=",
+  "Hash": "Kz/4ej5J4g8Z7wpo6vHwbYB5wQybry00G2ZjUfrza9A=",
   "Source": "Baligyaay",
   "BasePath": "_content/Baligyaay",
   "Mode": "Default",
@@ -243,6 +243,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\js\\test.js",
+      "SourceId": "Baligyaay",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\",
+      "BasePath": "_content/Baligyaay",
+      "RelativePath": "js/test.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\test.js"
     },
     {
       "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
