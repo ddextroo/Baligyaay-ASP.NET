@@ -38,7 +38,7 @@ $(document).ready(function () {
               '<span class="quantity">' +
               order.orderItemQuantity +
               "</span>" +
-              '<button type="button" class="btn btn-sm btn-outline-discovery ms-3 add-btn">+</button>' +
+              '<button type="button" class="btn btn-sm btn-outline-discovery ms-3 add-btn" data-stock=`${order.prodStock}`>+</button>' +
               "</td>" +
               "<td>" +
               order.catName +
@@ -46,6 +46,11 @@ $(document).ready(function () {
               "<td>₱" +
               '<span class="total_price">' +
               (order.orderItemQuantity * order.orderItemPrice).toFixed(2) +
+              "</span>" +
+              "</td>" +
+              "<td>" +
+              '<span class="stock">' +
+              order.prodStock +
               "</span>" +
               "</td>" +
               `<td><i class="fa-solid fa-square-minus fa-2xl btn text-danger delete-order" data-id="${order.orderItemId}"></i></td>` +
@@ -78,16 +83,20 @@ $(document).ready(function () {
             var $row = $(this).closest("tr");
             var $price = $row.find(".price");
             var $totalPrice = $row.find(".total_price");
+            var $stock = $row.find(".stock");
+            console.log(parseInt($stock.text()));
 
             var currentQuantity = parseInt($quantity.text());
-            var currentPrice = parseFloat($price.text().replace("₱", ""));
-            var newQuantity = currentQuantity + 1;
-            var newTotalPrice = (newQuantity * currentPrice).toFixed(2);
+            if (currentQuantity < parseInt($stock.text())) {
+              var currentPrice = parseFloat($price.text().replace("₱", ""));
+              var newQuantity = currentQuantity + 1;
+              var newTotalPrice = (newQuantity * currentPrice).toFixed(2);
 
-            $quantity.text(newQuantity);
-            $totalPrice.text(newTotalPrice);
+              $quantity.text(newQuantity);
+              $totalPrice.text(newTotalPrice);
 
-            updateOrder($row, newQuantity);
+              updateOrder($row, newQuantity);
+            }
           });
 
           $(".delete-order")
