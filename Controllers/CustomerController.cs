@@ -206,6 +206,25 @@ public class CustomerController : ControllerBase
             return StatusCode(500, ex.Message);
         }
     }
+    [HttpPost("Logout")]
+    public IActionResult Logout()
+    {
+        try
+        {
+            var email = _sessionManager.GetSessionValue("Email");
+
+            if (email != null)
+            {
+                _sessionManager.RemoveSessionValue("Email");
+                return Ok("User logout successfully");
+            }
+            return BadRequest("User not found");
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
 
 
 

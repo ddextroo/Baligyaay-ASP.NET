@@ -301,6 +301,10 @@
       "PackagePath": "staticwebassets\\uploads\\3affc0a5-b2e5-43c7-9c2e-2894175c2832.png"
     },
     {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\4378e1f6-d60a-412a-8bf0-f8d2b2fc7582.png",
+      "PackagePath": "staticwebassets\\uploads\\4378e1f6-d60a-412a-8bf0-f8d2b2fc7582.png"
+    },
+    {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\4510e32f-f525-423a-9462-85790e07b9eb.png",
       "PackagePath": "staticwebassets\\uploads\\4510e32f-f525-423a-9462-85790e07b9eb.png"
     },
@@ -351,6 +355,10 @@
     {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\d9a756d3-e7dc-41c2-ad50-8eb57d728965.png",
       "PackagePath": "staticwebassets\\uploads\\d9a756d3-e7dc-41c2-ad50-8eb57d728965.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\fba1a6d3-13c2-4746-bc02-a5c8efb7ee31.png",
+      "PackagePath": "staticwebassets\\uploads\\fba1a6d3-13c2-4746-bc02-a5c8efb7ee31.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Baligyaay.Microsoft.AspNetCore.StaticWebAssets.props",

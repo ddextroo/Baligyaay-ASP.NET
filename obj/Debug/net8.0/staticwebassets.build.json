@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Kz/4ej5J4g8Z7wpo6vHwbYB5wQybry00G2ZjUfrza9A=",
+  "Hash": "VmKP6U61favvDEaAEfM0VTpIt03iif7shlrPyQO1uUo=",
   "Source": "Baligyaay",
   "BasePath": "_content/Baligyaay",
   "Mode": "Default",
@@ -1461,6 +1461,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\3affc0a5-b2e5-43c7-9c2e-2894175c2832.png"
     },
     {
+      "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\4378e1f6-d60a-412a-8bf0-f8d2b2fc7582.png",
+      "SourceId": "Baligyaay",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\",
+      "BasePath": "_content/Baligyaay",
+      "RelativePath": "uploads/4378e1f6-d60a-412a-8bf0-f8d2b2fc7582.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\4378e1f6-d60a-412a-8bf0-f8d2b2fc7582.png"
+    },
+    {
       "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\4510e32f-f525-423a-9462-85790e07b9eb.png",
       "SourceId": "Baligyaay",
       "SourceType": "Discovered",
@@ -1706,6 +1725,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\d9a756d3-e7dc-41c2-ad50-8eb57d728965.png"
+    },
+    {
+      "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\fba1a6d3-13c2-4746-bc02-a5c8efb7ee31.png",
+      "SourceId": "Baligyaay",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\",
+      "BasePath": "_content/Baligyaay",
+      "RelativePath": "uploads/fba1a6d3-13c2-4746-bc02-a5c8efb7ee31.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\fba1a6d3-13c2-4746-bc02-a5c8efb7ee31.png"
     }
   ]
 }

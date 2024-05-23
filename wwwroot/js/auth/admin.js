@@ -134,6 +134,19 @@ $(document).ready(function () {
                   console.error("Error retrieving data:", err);
                 },
               });
+
+              $("#product_name").val("");
+              $("#product_description").val("");
+              $("#product_price").val("");
+              $("#product_stock").val("");
+              $("#product_material").val("");
+              $("#product_length").val("");
+              $("#product_width").val("");
+              $("#product_height").val("");
+              $("#product_weight").val("");
+              $("#product_image").val("");
+              $("#categorySelect").prop("selectedIndex", 0);
+
               Swal.fire({
                 title: data,
                 width: 600,
@@ -147,6 +160,12 @@ $(document).ready(function () {
                                 left top
                                 no-repeat
                             `,
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  setTimeout(() => {
+                    window.location.href = "/Home/Admin";
+                  }, 500);
+                }
               });
             },
             error: function (xhr, status, error) {
@@ -203,6 +222,7 @@ $(document).ready(function () {
               console.log(textStatus, errorThrown);
             },
           });
+          $("#category_name").val("");
           Swal.fire({
             title: data,
             width: 600,
@@ -216,6 +236,12 @@ $(document).ready(function () {
             left top
             no-repeat
           `,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              setTimeout(() => {
+                window.location.href = "/Home/Admin";
+              }, 500);
+            }
           });
         },
         error: function (xhr, status, error) {

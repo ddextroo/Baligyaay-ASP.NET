@@ -20,6 +20,8 @@ public class SessionManager
     {
         return _session.GetString(key);
     }
-
-    // Additional methods for managing session values can be added here
+    public void RemoveSessionValue(string key)
+    {
+        _session.Remove(key);
+    }
 }
