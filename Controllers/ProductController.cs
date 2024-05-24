@@ -77,6 +77,7 @@ namespace Baligyaay.Controllers
                 return StatusCode(500, json);
             }
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAllProduct(int categoryId = -1)
         {
@@ -138,6 +139,104 @@ namespace Baligyaay.Controllers
                             }
 
                             return Ok(products);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                var serializedException = new
+                {
+                    ex.Message,
+                    ex.StackTrace,
+                    ex.GetType().FullName
+                };
+
+                var json = System.Text.Json.JsonSerializer.Serialize(serializedException);
+
+                return StatusCode(500, json);
+            }
+        }
+
+        [HttpDelete("Delete/{prodId}")]
+        public async Task<IActionResult> DeleteOrderItem(int prodId)
+
+        {
+            try
+            {
+                await InitializeAsync();
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")!))
+                {
+                    await connection.OpenAsync();
+                    using (var command = new SqlCommand("DELETE FROM product WHERE prod_id = @prodId", connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@prodId", prodId);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return Ok("Product deleted successfullyw");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An error occurred while processing your request");
+            }
+        }
+
+
+
+        [HttpGet("GetProductById/{productId}")]
+        public async Task<IActionResult> GetProductById(int productId)
+        {
+            try
+            {
+                await InitializeAsync();
+
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")))
+                {
+                    await connection.OpenAsync();
+
+                    using (var command = new SqlCommand(@"
+                SELECT product.prod_id, product.prod_name, product.prod_description, product.prod_price, product.prod_stock, product.prod_img_url, 
+                       category.cat_id, category.cat_name, product_char.char_id, product_char.char_material, product_char.char_length, 
+                       product_char.char_width, product_char.char_height, product_char.char_weight 
+                FROM product 
+                INNER JOIN category ON product.cat_id = category.cat_id 
+                INNER JOIN product_char ON product.prod_id = product_char.prod_id
+                WHERE product.prod_id = @productId", connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@productId", productId);
+
+                        using (var reader = await command.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                var product = new JoinedProduct
+                                {
+                                    prod_id = reader.GetInt32("prod_id"),
+                                    prod_name = reader.GetString("prod_name"),
+                                    prod_description = reader.GetString("prod_description"),
+                                    prod_price = reader.GetDecimal("prod_price"),
+                                    prod_stock = reader.GetInt32("prod_stock"),
+                                    prod_img_url = reader.GetString("prod_img_url"),
+                                    cat_id = reader.GetInt32("cat_id"),
+                                    cat_name = reader.GetString("cat_name"),
+                                    char_id = reader.GetInt32("char_id"),
+                                    char_material = reader.GetString("char_material"),
+                                    char_length = reader.GetDecimal("char_length"),
+                                    char_width = reader.GetDecimal("char_width"),
+                                    char_height = reader.GetDecimal("char_height"),
+                                    char_weight = reader.GetDecimal("char_weight")
+                                };
+
+                                return Ok(product);
+                            }
+                            else
+                            {
+                                return NotFound("Product not found");
+                            }
                         }
                     }
                 }
@@ -263,6 +362,106 @@ namespace Baligyaay.Controllers
                 return StatusCode(500, ex.Message); // Consider returning a more user-friendly error message
             }
         }
+
+        [HttpPatch("UpdateProduct/{productId}")]
+        public IActionResult UpdateProduct(int productId, [FromBody] ProductCreationDTO productUpdateDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")))
+                {
+                    connection.Open();
+
+                    string filename = null;
+                    if (productUpdateDto.Product.image != "wala")
+                    {
+                        var base64Data = Regex.Match(productUpdateDto.Product.image, @"data:image/(?<type>.+?);base64,(?<data>.+)").Groups["data"].Value;
+                        var imageData = Convert.FromBase64String(base64Data);
+                        filename = Guid.NewGuid() + ".png";
+                        var filePath = Path.Combine("wwwroot", "uploads", $"{filename}");
+                        System.IO.File.WriteAllBytes(filePath, imageData);
+                    }
+
+                    string updateProductQuery = @"
+                UPDATE product 
+                SET 
+                    prod_name = @name, 
+                    prod_description = @description, 
+                    prod_price = @price, 
+                    prod_stock = @stock, 
+                    cat_id = @cat_id ";
+
+                    if (filename != null)
+                    {
+                        updateProductQuery += ", prod_img_url = @image ";
+                    }
+
+                    updateProductQuery += "WHERE prod_id = @productId";
+
+                    using (var command = new SqlCommand(updateProductQuery, connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@name", productUpdateDto.Product.name);
+                        command.Parameters.AddWithValue("@description", productUpdateDto.Product.description);
+                        command.Parameters.AddWithValue("@price", productUpdateDto.Product.price);
+                        command.Parameters.AddWithValue("@stock", productUpdateDto.Product.stock);
+                        command.Parameters.AddWithValue("@cat_id", productUpdateDto.Product.category);
+                        command.Parameters.AddWithValue("@productId", productId);
+
+                        if (filename != null)
+                        {
+                            command.Parameters.AddWithValue("@image", "/uploads/" + filename);
+                        }
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected <= 0)
+                        {
+                            return NotFound("Product not found");
+                        }
+                    }
+
+                    using (var command2 = new SqlCommand(@"
+                UPDATE product_char 
+                SET 
+                    char_material = @material, 
+                    char_length = @length, 
+                    char_width = @width, 
+                    char_height = @height, 
+                    char_weight = @weight 
+                WHERE prod_id = @productId", connection))
+                    {
+                        command2.CommandType = CommandType.Text;
+                        command2.Parameters.AddWithValue("@material", productUpdateDto.ProductChar.material);
+                        command2.Parameters.AddWithValue("@length", productUpdateDto.ProductChar.length);
+                        command2.Parameters.AddWithValue("@width", productUpdateDto.ProductChar.width);
+                        command2.Parameters.AddWithValue("@height", productUpdateDto.ProductChar.height);
+                        command2.Parameters.AddWithValue("@weight", productUpdateDto.ProductChar.weight);
+                        command2.Parameters.AddWithValue("@productId", productId);
+
+                        int charRowsAffected = command2.ExecuteNonQuery();
+                        if (charRowsAffected <= 0)
+                        {
+                            return StatusCode(500, "Failed to update product characteristics");
+                        }
+                    }
+
+                    return Ok("Product updated successfully");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+
+                return StatusCode(500, ex.Message);
+            }
+        }
+
 
         [HttpPut("UpdateStock/{prodId}/{newOrderStock}")]
         public async Task<IActionResult> UpdateStock(int prodId, int newOrderStock)

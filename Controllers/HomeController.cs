@@ -66,6 +66,14 @@ namespace Baligyaay.Controllers
         {
             return View();
         }
+        public IActionResult CategoryAdmin()
+        {
+            return View();
+        }
+        public IActionResult CustomerAdmin()
+        {
+            return View();
+        }
         public async Task<IActionResult> Order()
         {
             var email = _sessionManager.GetSessionValue("Email");

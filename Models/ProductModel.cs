@@ -6,7 +6,7 @@ public class Product
     public required string description { get; set; }
     public required double price { get; set; }
     public required int stock { get; set; }
-    public required string image { get; set; }
-    public required string imageName { get; set; }
+    public string image { get; set; }
+    // public string imageName { get; set; }
     public required int category { get; set; }
 }

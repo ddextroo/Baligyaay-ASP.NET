@@ -19,7 +19,19 @@
     >
       Add Product
     </button>
-
+    <a href="/Home/CategoryAdmin"
+  <button type="button" class="btn btn-discovery position-relative" id="category_list">
+  <i class="fa-solid fa-tags"></i>
+</button>
+</a>
+    <a href="/Home/CustomerAdmin"
+  <button type="button" class="btn btn-discovery position-relative" id="customer_list">
+  <i class="fa-solid fa-users"></i>
+</button>
+</a>
+  <button type="button" class="btn btn-discovery position-relative" id="logout">
+  <i class="fa-solid fa-right-from-bracket"></i>
+</button>
     </div>
   </div>
   <table
@@ -39,6 +51,7 @@
         <th scope="col">Price</th>
         <th scope="col">Stock</th>
         <th scope="col">Category</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -288,4 +301,3 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/js/auth/admin.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="sweetalert2.all.min.js"></script>

@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\js\\auth\\signup.js"
     },
     {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\js\\home\\category.js",
+      "PackagePath": "staticwebassets\\js\\home\\category.js"
+    },
+    {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\js\\home\\home.js",
       "PackagePath": "staticwebassets\\js\\home\\home.js"
     },
@@ -277,8 +281,28 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\0491d433-3b4a-4034-977c-b8b254069608.png",
+      "PackagePath": "staticwebassets\\uploads\\0491d433-3b4a-4034-977c-b8b254069608.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\09415c94-981a-4bb4-84cd-5329296ec2d8.png",
+      "PackagePath": "staticwebassets\\uploads\\09415c94-981a-4bb4-84cd-5329296ec2d8.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\0a64b5f3-2f09-449c-b1c7-b6923d615511.png",
+      "PackagePath": "staticwebassets\\uploads\\0a64b5f3-2f09-449c-b1c7-b6923d615511.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\0c351032-84d6-4210-bd24-474b1bcb3154.png",
+      "PackagePath": "staticwebassets\\uploads\\0c351032-84d6-4210-bd24-474b1bcb3154.png"
+    },
+    {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\106c7d12-8a00-4217-808e-f1641bfbf521.png",
       "PackagePath": "staticwebassets\\uploads\\106c7d12-8a00-4217-808e-f1641bfbf521.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\12356d02-c721-4a09-8310-5b47d09fa7d2.png",
+      "PackagePath": "staticwebassets\\uploads\\12356d02-c721-4a09-8310-5b47d09fa7d2.png"
     },
     {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\21f12295-e82a-4e0b-a72a-4772e33751ac.png",
@@ -305,20 +329,68 @@
       "PackagePath": "staticwebassets\\uploads\\4378e1f6-d60a-412a-8bf0-f8d2b2fc7582.png"
     },
     {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\4397f7e7-ca95-4169-a202-8942bd086506.png",
+      "PackagePath": "staticwebassets\\uploads\\4397f7e7-ca95-4169-a202-8942bd086506.png"
+    },
+    {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\4510e32f-f525-423a-9462-85790e07b9eb.png",
       "PackagePath": "staticwebassets\\uploads\\4510e32f-f525-423a-9462-85790e07b9eb.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\46001132-d223-4fc6-b7e0-92bd5c52d641.png",
+      "PackagePath": "staticwebassets\\uploads\\46001132-d223-4fc6-b7e0-92bd5c52d641.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\4ab08489-e5c0-4e3a-8f5d-4d2c86e318ae.png",
+      "PackagePath": "staticwebassets\\uploads\\4ab08489-e5c0-4e3a-8f5d-4d2c86e318ae.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\4cbb9c63-b113-4dc8-8432-298cb6b9c018.png",
+      "PackagePath": "staticwebassets\\uploads\\4cbb9c63-b113-4dc8-8432-298cb6b9c018.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\4f44111c-c8e4-41ba-870e-f27a97cb4d9f.png",
+      "PackagePath": "staticwebassets\\uploads\\4f44111c-c8e4-41ba-870e-f27a97cb4d9f.png"
     },
     {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\5017a2ed-a3de-46cc-9782-a71edc9de4dd.png",
       "PackagePath": "staticwebassets\\uploads\\5017a2ed-a3de-46cc-9782-a71edc9de4dd.png"
     },
     {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\58a294ff-c25e-4b34-85b2-82478c0726a2.png",
+      "PackagePath": "staticwebassets\\uploads\\58a294ff-c25e-4b34-85b2-82478c0726a2.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\5afd8b51-11b6-46e6-951a-3c63cbc652bd.png",
+      "PackagePath": "staticwebassets\\uploads\\5afd8b51-11b6-46e6-951a-3c63cbc652bd.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\5dfac525-ec04-4b94-b0be-f6e5eac5aa5f.png",
+      "PackagePath": "staticwebassets\\uploads\\5dfac525-ec04-4b94-b0be-f6e5eac5aa5f.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\6091d4b1-6e35-437b-a0f2-25de09527362.png",
+      "PackagePath": "staticwebassets\\uploads\\6091d4b1-6e35-437b-a0f2-25de09527362.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\62c545d0-44fd-4976-8126-87b8556ddc4e.png",
+      "PackagePath": "staticwebassets\\uploads\\62c545d0-44fd-4976-8126-87b8556ddc4e.png"
+    },
+    {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\66fe2c5d-582c-4fef-b183-3aa4872d8a60.png",
       "PackagePath": "staticwebassets\\uploads\\66fe2c5d-582c-4fef-b183-3aa4872d8a60.png"
     },
     {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\6e8e3581-7cb6-410f-9ccd-42cf36584156.png",
+      "PackagePath": "staticwebassets\\uploads\\6e8e3581-7cb6-410f-9ccd-42cf36584156.png"
+    },
+    {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\78bff4ad-2a12-41ec-871c-944c0a1e4269.png",
       "PackagePath": "staticwebassets\\uploads\\78bff4ad-2a12-41ec-871c-944c0a1e4269.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\7a0abc76-150c-4820-a6af-baa3f46249ba.png",
+      "PackagePath": "staticwebassets\\uploads\\7a0abc76-150c-4820-a6af-baa3f46249ba.png"
     },
     {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\7e05bb80-b83d-42cd-8da5-b93a7bf66ec2.png",
@@ -329,12 +401,20 @@
       "PackagePath": "staticwebassets\\uploads\\82d2ba5e-73cb-42da-aac8-8e46d0f5be1a.png"
     },
     {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\8c738a7b-75ac-4b00-b160-f0d68e22b954.png",
+      "PackagePath": "staticwebassets\\uploads\\8c738a7b-75ac-4b00-b160-f0d68e22b954.png"
+    },
+    {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\933dcc49-5cb3-419f-be32-e93203e812f5.png",
       "PackagePath": "staticwebassets\\uploads\\933dcc49-5cb3-419f-be32-e93203e812f5.png"
     },
     {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\9805dd04-5749-4506-a66c-4709510b1921.png",
       "PackagePath": "staticwebassets\\uploads\\9805dd04-5749-4506-a66c-4709510b1921.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\98378d31-0639-4107-aed5-381767a5054d.png",
+      "PackagePath": "staticwebassets\\uploads\\98378d31-0639-4107-aed5-381767a5054d.png"
     },
     {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\a9ffca28-1132-446a-bb20-4750971439ff.png",
@@ -345,6 +425,26 @@
       "PackagePath": "staticwebassets\\uploads\\b3bf5e26-9986-455d-ad6f-4b924bf8e892.png"
     },
     {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\b631ffc6-af51-41ca-8db0-f9876d8b8160.png",
+      "PackagePath": "staticwebassets\\uploads\\b631ffc6-af51-41ca-8db0-f9876d8b8160.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\b97aca86-4d93-47cb-af02-5f52a9aa0bf8.png",
+      "PackagePath": "staticwebassets\\uploads\\b97aca86-4d93-47cb-af02-5f52a9aa0bf8.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\bafeba76-e30e-403d-bc30-8d89967b16b6.png",
+      "PackagePath": "staticwebassets\\uploads\\bafeba76-e30e-403d-bc30-8d89967b16b6.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\bbaf6664-56ac-4dac-8c0a-73758aece761.png",
+      "PackagePath": "staticwebassets\\uploads\\bbaf6664-56ac-4dac-8c0a-73758aece761.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\c7636b02-8fca-4df0-a0c9-9c412daaf3b6.png",
+      "PackagePath": "staticwebassets\\uploads\\c7636b02-8fca-4df0-a0c9-9c412daaf3b6.png"
+    },
+    {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\ca08f21f-0d5c-4840-adbf-8bff0d5b81e9.png",
       "PackagePath": "staticwebassets\\uploads\\ca08f21f-0d5c-4840-adbf-8bff0d5b81e9.png"
     },
@@ -353,8 +453,32 @@
       "PackagePath": "staticwebassets\\uploads\\ce34d836-c369-45e0-92f8-a31be53972dc.png"
     },
     {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\d1a4c2fb-639d-4350-96f1-4d2d787dbfe3.png",
+      "PackagePath": "staticwebassets\\uploads\\d1a4c2fb-639d-4350-96f1-4d2d787dbfe3.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\d41bcb35-2ebc-4f76-804b-89d5c8b64541.png",
+      "PackagePath": "staticwebassets\\uploads\\d41bcb35-2ebc-4f76-804b-89d5c8b64541.png"
+    },
+    {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\d9a756d3-e7dc-41c2-ad50-8eb57d728965.png",
       "PackagePath": "staticwebassets\\uploads\\d9a756d3-e7dc-41c2-ad50-8eb57d728965.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\e101530c-caeb-4ac6-af6c-3e900411b608.png",
+      "PackagePath": "staticwebassets\\uploads\\e101530c-caeb-4ac6-af6c-3e900411b608.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\e1c7f86d-abb3-461d-a8bc-c5f20cfdd330.png",
+      "PackagePath": "staticwebassets\\uploads\\e1c7f86d-abb3-461d-a8bc-c5f20cfdd330.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\f2915ba3-3d1f-46eb-b16f-eb309e67f5c8.png",
+      "PackagePath": "staticwebassets\\uploads\\f2915ba3-3d1f-46eb-b16f-eb309e67f5c8.png"
+    },
+    {
+      "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\f4a9fe83-31de-4b44-88a4-72619eb58717.png",
+      "PackagePath": "staticwebassets\\uploads\\f4a9fe83-31de-4b44-88a4-72619eb58717.png"
     },
     {
       "Id": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\fba1a6d3-13c2-4746-bc02-a5c8efb7ee31.png",

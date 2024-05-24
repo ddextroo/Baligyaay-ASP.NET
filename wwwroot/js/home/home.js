@@ -1,13 +1,13 @@
 $(document).ready(function () {
   $("#logout").click(function () {
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      title: "Confirm Logout",
+      text: "Please confirm that you want to log out. After logout, you will need to log in again.",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#d33",
       cancelButtonColor: "#716add",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, Log Out",
     }).then((result) => {
       if (result.isConfirmed) {
         $.ajax({
@@ -20,6 +20,9 @@ $(document).ready(function () {
             }, 500);
           },
         });
+        setTimeout(() => {
+          window.location.href = "/Home/Login";
+        }, 500);
       }
     });
   });
