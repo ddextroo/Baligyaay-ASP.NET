@@ -15,11 +15,18 @@ $(document).ready(function () {
         data: { cus_id: cus_id },
         success: function (data) {
           if (!data || Object.keys(data).length === 0) {
-            $("#checkout").hide();
+            $("#checkout-container").hide();
           }
+          var totalOrderPrice = 0;
+
+          var orderCount = data.length;
+          $("#totalOrderCount").text(orderCount + " order(s)");
           var tbody = $("#OrderTable tbody");
           tbody.empty();
           data.forEach(function (order, index) {
+            var orderTotalPrice =
+              order.orderItemQuantity * order.orderItemPrice;
+            totalOrderPrice += orderTotalPrice;
             var row =
               "<tr>" +
               "<td>" +
@@ -58,6 +65,8 @@ $(document).ready(function () {
             tbody.append(row);
           });
 
+          $("#totalOrderPrice").text("₱" + totalOrderPrice.toFixed(2));
+
           // Event delegation for dynamically added elements
           tbody.on("click", ".subtract-btn", function () {
             var $quantity = $(this).siblings(".quantity");
@@ -75,6 +84,8 @@ $(document).ready(function () {
               $totalPrice.text(newTotalPrice);
 
               updateOrder($row, newQuantity);
+              updateTotalOrderPrice();
+              updateOrderCount();
             }
           });
 
@@ -96,6 +107,8 @@ $(document).ready(function () {
               $totalPrice.text(newTotalPrice);
 
               updateOrder($row, newQuantity);
+              updateTotalOrderPrice();
+              updateOrderCount();
             }
           });
 
@@ -125,6 +138,21 @@ $(document).ready(function () {
                 },
               });
             });
+
+          function updateTotalOrderPrice() {
+            var newTotalOrderPrice = 0;
+            tbody.find("tr").each(function () {
+              var orderTotalPrice = parseFloat(
+                $(this).find(".total_price").text().replace("₱", "")
+              );
+              newTotalOrderPrice += orderTotalPrice;
+            });
+            $("#totalOrderPrice").text("₱" + newTotalOrderPrice.toFixed(2));
+          }
+          function updateOrderCount() {
+            var newOrderCount = tbody.find("tr").length;
+            $("#totalOrderCount").text(newOrderCount + " order(s)");
+          }
         },
       });
     },
@@ -177,6 +205,8 @@ $(document).ready(function () {
       success: function (response) {
         var price = parseFloat(row.find("td:eq(2)").text().replace("₱", ""));
         row.find("td:eq(5)").text("₱" + (price * newQuantity).toFixed(2));
+        updateTotalOrderPrice();
+        updateOrderCount();
       },
       error: function (error) {
         // console.log("Error updating order", error);
@@ -239,8 +269,12 @@ $(document).ready(function () {
                 text: "Checkout completed successfully!",
                 icon: "success",
               }).then(() => {});
+              $("#totalOrderPrice").text("₱0.00");
+              $("#totalOrderCount").text("0" + " order(s)");
             },
           });
+          $("#totalOrderPrice").text("₱0.00");
+          $("#totalOrderCount").text("0" + " order(s)");
         }
         setTimeout(() => {
           window.location.href = "/Home/Order";

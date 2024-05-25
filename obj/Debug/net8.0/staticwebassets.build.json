@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xBCc+TJ7zviG4DBa68NddriMx4G3YnngX6bibs1AHO0=",
+  "Hash": "wUhM6TvgVYmHWj2kCP0re/gOenpW3tAJuJVjCe98v3c=",
   "Source": "Baligyaay",
   "BasePath": "_content/Baligyaay",
   "Mode": "Default",
@@ -1404,6 +1404,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\0491d433-3b4a-4034-977c-b8b254069608.png"
     },
     {
+      "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\05dc0633-0ebd-4164-a08b-6c7046a4cbd5.png",
+      "SourceId": "Baligyaay",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\",
+      "BasePath": "_content/Baligyaay",
+      "RelativePath": "uploads/05dc0633-0ebd-4164-a08b-6c7046a4cbd5.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\05dc0633-0ebd-4164-a08b-6c7046a4cbd5.png"
+    },
+    {
       "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\09415c94-981a-4bb4-84cd-5329296ec2d8.png",
       "SourceId": "Baligyaay",
       "SourceType": "Discovered",
@@ -2145,6 +2164,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\bbaf6664-56ac-4dac-8c0a-73758aece761.png"
     },
     {
+      "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\bdfdc1e5-c8b8-4400-9302-1cc4bcdbeb36.png",
+      "SourceId": "Baligyaay",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\",
+      "BasePath": "_content/Baligyaay",
+      "RelativePath": "uploads/bdfdc1e5-c8b8-4400-9302-1cc4bcdbeb36.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\bdfdc1e5-c8b8-4400-9302-1cc4bcdbeb36.png"
+    },
+    {
       "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\c7636b02-8fca-4df0-a0c9-9c412daaf3b6.png",
       "SourceId": "Baligyaay",
       "SourceType": "Discovered",
@@ -2295,6 +2333,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\e1c7f86d-abb3-461d-a8bc-c5f20cfdd330.png"
+    },
+    {
+      "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\efd5776a-1b71-4648-a628-9285858fd921.png",
+      "SourceId": "Baligyaay",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\",
+      "BasePath": "_content/Baligyaay",
+      "RelativePath": "uploads/efd5776a-1b71-4648-a628-9285858fd921.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\efd5776a-1b71-4648-a628-9285858fd921.png"
     },
     {
       "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\f2915ba3-3d1f-46eb-b16f-eb309e67f5c8.png",

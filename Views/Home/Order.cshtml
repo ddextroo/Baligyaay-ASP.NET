@@ -45,7 +45,22 @@
     <tbody>
     </tbody>
   </table>
-  <div class="w-100 mt-5"><button class="btn btn-discovery w-100" id="checkout">Checkout</button></div>
+  <div class="container py-5">
+  <div class="row" id="checkout-container">
+    <div class="col-md-12 text-center">
+      <p id="">Estimated Total</p>
+      <div class="subtotal-container">
+        <span id="totalOrderPrice" class="fs-1 fw-bold">P0.00</span>
+      </div>
+      <div class="subtotal-container">
+        <span id="totalOrderCount" class="text-secondary">0 orders</span>
+      </div>
+      <div class="mt-5">
+        <button class="btn btn-discovery w-50" id="checkout">Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
