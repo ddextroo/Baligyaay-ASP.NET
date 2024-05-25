@@ -263,7 +263,6 @@ $(document).ready(function () {
           weight: parseFloat($("#product_weight").val()),
         },
       };
-
       $.ajax({
         url: "/api/Product/UpdateProduct/" + prodId,
         type: "PATCH",
@@ -296,10 +295,37 @@ $(document).ready(function () {
           });
         },
       });
+      setTimeout(() => {
+        window.location.href = "/Home/Admin";
+      }, 500);
     }
   }
 
   loadProducts();
+
+  $.ajax({
+    url: "/api/Product/Category",
+    type: "GET",
+    dataType: "json",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    success: function (data) {
+      $("#categorySelect").empty();
+      $.each(data, function (index, category) {
+        $("#categorySelect").append(
+          $("<option>", {
+            value: category.id,
+            text: category.name,
+          })
+        );
+      });
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.log(textStatus, errorThrown);
+    },
+  });
 
   $("#DataModal2 .modal-footer button:nth-child(2)")
     .off("click")
