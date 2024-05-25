@@ -184,6 +184,37 @@ namespace Baligyaay.Controllers
             }
         }
 
+        [HttpDelete("Category/Delete/{catId}")]
+        public async Task<IActionResult> DeleteCategory(int catId)
+        {
+            try
+            {
+                await InitializeAsync();
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")!))
+                {
+                    await connection.OpenAsync();
+                    using (var command = new SqlCommand("DELETE FROM category WHERE cat_id = @catId", connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@catId", catId);
+
+                        int rowsAffected = await command.ExecuteNonQueryAsync();
+                        if (rowsAffected > 0)
+                        {
+                            return Ok("Category deleted successfully");
+                        }
+                        else
+                        {
+                            return NotFound("Category not found");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An error occurred while processing your request");
+            }
+        }
 
 
         [HttpGet("GetProductById/{productId}")]
@@ -255,6 +286,94 @@ namespace Baligyaay.Controllers
                 return StatusCode(500, json);
             }
         }
+        [HttpPatch("UpdateCategory/{catId}")]
+        public async Task<IActionResult> UpdateCategory(int catId, [FromBody] Category updatedCategory)
+        {
+            try
+            {
+                await InitializeAsync();
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")!))
+                {
+                    await connection.OpenAsync();
+                    using (var command = new SqlCommand("UPDATE category SET cat_name = @name WHERE cat_id = @catId", connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@name", updatedCategory.name);
+                        command.Parameters.AddWithValue("@catId", catId);
+
+                        int rowsAffected = await command.ExecuteNonQueryAsync();
+                        if (rowsAffected > 0)
+                        {
+                            return Ok("Category updated successfully");
+                        }
+                        else
+                        {
+                            return NotFound("Category not found");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex);
+            }
+        }
+
+
+        [HttpGet("GetCategoryById/{catId}")]
+        public async Task<IActionResult> GetCategoryById(int catId)
+        {
+            try
+            {
+                await InitializeAsync();
+
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")))
+                {
+                    await connection.OpenAsync();
+
+                    using (var command = new SqlCommand(@"
+                SELECT cat_id, cat_name 
+                FROM category 
+                WHERE cat_id = @catId", connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@catId", catId);
+
+                        using (var reader = await command.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                var category = new
+                                {
+                                    cat_id = reader.GetInt32("cat_id"),
+                                    cat_name = reader.GetString("cat_name")
+                                };
+
+                                return Ok(category);
+                            }
+                            else
+                            {
+                                return NotFound("Category not found");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                var serializedException = new
+                {
+                    ex.Message,
+                    ex.StackTrace,
+                    ex.GetType().FullName
+                };
+
+                var json = System.Text.Json.JsonSerializer.Serialize(serializedException);
+
+                return StatusCode(500, json);
+            }
+        }
+
 
         [HttpPost("Category")]
         public IActionResult CreateCategory([FromBody] Category category)

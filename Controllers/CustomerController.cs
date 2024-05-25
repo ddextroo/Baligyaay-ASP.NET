@@ -341,6 +341,39 @@ public class CustomerController : ControllerBase
             return StatusCode(500, json);
         }
     }
+
+    [HttpDelete("Delete/{cusId}")]
+    public async Task<IActionResult> DeleteCustomer(int cusId)
+    {
+        try
+        {
+            await InitializeAsync();
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("baligyaayconn")!))
+            {
+                await connection.OpenAsync();
+                using (var command = new SqlCommand("DELETE FROM customer WHERE cus_id = @cusId", connection))
+                {
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@cusId", cusId);
+
+                    int rowsAffected = await command.ExecuteNonQueryAsync();
+                    if (rowsAffected > 0)
+                    {
+                        return Ok("Customer deleted successfully");
+                    }
+                    else
+                    {
+                        return NotFound("Customer not found");
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, "An error occurred while processing your request");
+        }
+    }
+
 }
 
 

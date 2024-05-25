@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iuPribYtV8eJtjnc2A/g4Xl91SSRqsrz8oez2WrMrEQ=",
+  "Hash": "xBCc+TJ7zviG4DBa68NddriMx4G3YnngX6bibs1AHO0=",
   "Source": "Baligyaay",
   "BasePath": "_content/Baligyaay",
   "Mode": "Default",
@@ -205,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\home\\category.js"
+    },
+    {
+      "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\js\\home\\customer.js",
+      "SourceId": "Baligyaay",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\",
+      "BasePath": "_content/Baligyaay",
+      "RelativePath": "js/home/customer.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\home\\customer.js"
     },
     {
       "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\js\\home\\home.js",

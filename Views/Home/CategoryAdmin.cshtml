@@ -13,19 +13,23 @@
       Add Category
     </button>
 </button>
+    <a href="/Home/Admin">
   <button type="button" class="btn btn-discovery position-relative" id="product_list">
   <i class="fa-solid fa-couch"></i>
 </button>
+</a>
+    <a href="/Home/CustomerAdmin">
   <button type="button" class="btn btn-discovery position-relative" id="customer_list">
   <i class="fa-solid fa-users"></i>
 </button>
+</a>
   <button type="button" class="btn btn-discovery position-relative" id="logout">
   <i class="fa-solid fa-right-from-bracket"></i>
 </button>
     </div>
   </div>
   <table
-    id="CustomerTable"
+    id="CategoryTable"
     class="table table-borderless table-stipped table-hover"
     data-url=""
     data-side-pagination="client"
@@ -36,8 +40,9 @@
   >
     <thead>
       <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Action</th>
+       <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
       </tr>
     </thead>
     <tbody>

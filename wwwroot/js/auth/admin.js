@@ -301,30 +301,6 @@ $(document).ready(function () {
 
   loadProducts();
 
-  $.ajax({
-    url: "/api/Product/Category",
-    type: "GET",
-    dataType: "json",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    success: function (data) {
-      $("#categorySelect").empty();
-      $.each(data, function (index, category) {
-        $("#categorySelect").append(
-          $("<option>", {
-            value: category.id,
-            text: category.name,
-          })
-        );
-      });
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.log(textStatus, errorThrown);
-    },
-  });
-
   $("#DataModal2 .modal-footer button:nth-child(2)")
     .off("click")
     .on("click", function () {
@@ -409,75 +385,5 @@ $(document).ready(function () {
       } else {
         alert("Please select an image file to upload.");
       }
-    });
-
-  $("#DataModal3 .modal-footer button:nth-child(2)")
-    .off("click")
-    .on("click", function () {
-      var category_name = $("#category_name").val();
-      $.ajax({
-        url: "/api/Product/Category",
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify({ name: category_name }),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        success: function (data) {
-          $.ajax({
-            url: "/api/Product/Category",
-            type: "GET",
-            dataType: "json",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            success: function (data) {
-              $("#categorySelect").empty();
-              $.each(data, function (index, category) {
-                $("#categorySelect").append(
-                  $("<option>", {
-                    value: category.id,
-                    text: category.name,
-                  })
-                );
-              });
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-              console.log(textStatus, errorThrown);
-            },
-          });
-          $("#category_name").val("");
-          Swal.fire({
-            title: data,
-            width: 600,
-            padding: "3em",
-            color: "#716add",
-            background:
-              "#fff url(https://sweetalert2.github.io/images/trees.png)",
-            backdrop: `
-            rgba(0,0,123,0.4)
-            url("https://sweetalert2.github.io/images/nyan-cat.gif")
-            left top
-            no-repeat
-          `,
-          }).then((result) => {
-            if (result.isConfirmed) {
-              setTimeout(() => {
-                window.location.href = "/Home/Admin";
-              }, 500);
-            }
-          });
-        },
-        error: function (xhr, status, error) {
-          console.error(xhr.responseText);
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: xhr.responseText,
-          });
-        },
-      });
     });
 });

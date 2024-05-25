@@ -68,10 +68,22 @@ namespace Baligyaay.Controllers
         }
         public IActionResult CategoryAdmin()
         {
+            var admin = _sessionManager.GetSessionValue("admin");
+
+            if (admin == null)
+            {
+                return RedirectToAction("AdminLogin");
+            }
             return View();
         }
         public IActionResult CustomerAdmin()
         {
+            var admin = _sessionManager.GetSessionValue("admin");
+
+            if (admin == null)
+            {
+                return RedirectToAction("AdminLogin");
+            }
             return View();
         }
         public async Task<IActionResult> Order()
