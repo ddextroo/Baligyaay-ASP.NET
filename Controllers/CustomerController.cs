@@ -122,9 +122,17 @@ public class CustomerController : ControllerBase
                 return BadRequest("A valid email is required.");
             }
 
-            if (!string.IsNullOrEmpty(customer.Phone) && !Regex.IsMatch(customer.Phone, @"^\+?[1-9]\d{1,14}$"))
+            if (!string.IsNullOrEmpty(customer.Phone))
             {
-                return BadRequest("A valid phone number is required.");
+                if (!Regex.IsMatch(customer.Phone, @"^09\d{9}$"))
+                {
+                    return BadRequest("A valid phone number is required. It should start with 09 and have a total of 11 digits.");
+                }
+            }
+
+            if (string.IsNullOrEmpty(customer.Password) || customer.Password.Length < 6)
+            {
+                return BadRequest("Password is required and must be at least 6 characters long.");
             }
 
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(customer.Password);
