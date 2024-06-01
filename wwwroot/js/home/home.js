@@ -254,6 +254,7 @@ $(document).ready(function () {
     success: function (data) {
       email = data[0].email;
       cus_id = data[0].id;
+      $("#log_name").text(`Logged in as: ${data[0].firstName}`);
       $.ajax({
         url: "/api/Order/getorders",
         method: "GET",

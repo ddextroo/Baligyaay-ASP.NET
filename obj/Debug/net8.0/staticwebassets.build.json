@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wUhM6TvgVYmHWj2kCP0re/gOenpW3tAJuJVjCe98v3c=",
+  "Hash": "9HSPYjsxBhOmMpKGzm2Wcf9C+iXtYZ5KrmOqlLvLBWY=",
   "Source": "Baligyaay",
   "BasePath": "_content/Baligyaay",
   "Mode": "Default",
@@ -2086,6 +2086,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\b3bf5e26-9986-455d-ad6f-4b924bf8e892.png"
+    },
+    {
+      "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\b5b718e3-08a9-4830-a9ec-5c4fab616e42.png",
+      "SourceId": "Baligyaay",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\",
+      "BasePath": "_content/Baligyaay",
+      "RelativePath": "uploads/b5b718e3-08a9-4830-a9ec-5c4fab616e42.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\b5b718e3-08a9-4830-a9ec-5c4fab616e42.png"
     },
     {
       "Identity": "C:\\Users\\W10\\Documents\\MYFILES\\MY_PROJECTS\\web\\Baligyaay\\wwwroot\\uploads\\b631ffc6-af51-41ca-8db0-f9876d8b8160.png",
